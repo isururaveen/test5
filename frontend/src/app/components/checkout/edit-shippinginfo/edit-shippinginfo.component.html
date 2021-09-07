@@ -1,0 +1,64 @@
+
+ <br>
+ <br>
+ <br>
+ <br>
+        <form class="needs-validation">
+          <div class="row">
+
+            <div class="col-md-6 mb-3">
+              <label for="email">Email </label>
+              <input type="email" class="form-control" id="" required [(ngModel)]="editShipping.email" name="email"
+                />
+                <p class="text-danger">{{errorMsg.email}}</p>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="" placeholder="1234 Main St" [(ngModel)]="editShipping.address_1"
+              name="AddressOne" />
+              <p class="text-danger">{{errorMsg.address_1}}</p>
+          </div>
+
+          <div class="mb-3">
+            <label for="address2">Address 2 </label>
+            <input type="text" class="form-control" id="" placeholder="Apartment or suite"
+              [(ngModel)]="editShipping.address_2" name="AddressTwo" />
+              <p class="text-danger">{{editShipping.address_2}}</p>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <label for="country">District</label>
+              <input type="text" class="form-control" id="" placeholder="Country" [(ngModel)]="editShipping.country"
+                name="Country" />
+                <p class="text-danger">{{errorMsg.country}}</p>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <label for="zip">City</label>
+              <input type="text" class="form-control" id="" placeholder="City" [(ngModel)]="editShipping.city"
+                name="City" />
+                <p class="text-danger">{{errorMsg.city}}</p>
+            </div>
+
+            <div class="col-md-3 mb-3">
+              <label for="zip">Zip</label>
+              <input type="text" class="form-control" id="" placeholder="ZipCode" [(ngModel)]="editShipping.postal_code"
+                name="ZipCode" />
+                <p class="text-danger">{{errorMsg.postal_code}}</p>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <button type="submit" (click)="onUpdate()"  value="Update" class="btn  float-left">
+               Update
+              </button>
+            </div>
+
+
+          </div>
+
+        </form>
+
+

@@ -1,0 +1,121 @@
+
+<div class="container mt-3">
+  <div class="row">
+    <button type="submit" (click)="onNext()"   class="btn btn-register float-left">
+      Next
+    </button>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
+
+<div class="container mt-3">
+  <div class="col-md order-md-1">
+    <h4 class="mb-3" style="color: black; font-weight: bold;">Shipping Information</h4>
+    <form class="needs-validation">
+
+      <!-- New style row starts here -->
+      <div class="row">
+        <div class="col-md-6" *ngFor="let ad of adresses">
+          <div class="radio">
+            <label><input type="radio" value = "{{ad.shipping_id}}" #ref (click) = "onclickradio(ref.value)"  name="shippingaddres">&nbsp;&nbsp;<strong>{{ad.email}}</strong>
+              <br>
+              <em> {{ad.address_1}} </em>
+              &nbsp;
+              <em> {{ad.address_2}} </em>
+              <br>
+              <em> {{ad.city}} </em>
+              &nbsp;
+              <em> {{ad.country}} </em>
+              &nbsp;
+              <em> {{ad.postal_code}} </em>
+              <br>
+              <a style="color: blue;" [routerLink]="['/checkout/update/',ad.shipping_id]">Edit</a> &nbsp;    <a style="color: blue;"  (click)="onDelete(ad.shipping_id)" >Delete</a>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="buttons">
+          <a style="color: blue;" (click)="div1Function()">+ Add new address</a>
+        </div>
+        </div>
+        <!-- New style row ends here -->
+        <hr class="mb-4" />
+       <!-- Row to show form on button click starts here  -->
+
+        <div *ngIf="div1">
+          <div class="row">
+
+            <form class="needs-validation">
+              <div class="row">
+
+                <div class="col-md-6 mb-3">
+                  <label for="email">Email </label>
+                  <input type="email" class="form-control" id="" required [(ngModel)]="address.email" name="email"
+                    />
+                    <p class="text-danger">{{errorMsg.email}}</p>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="" placeholder="1234 Main St" [(ngModel)]="address.address_1"
+                  name="AddressOne" />
+                  <p class="text-danger">{{errorMsg.address_1}}</p>
+              </div>
+
+              <div class="mb-3">
+                <label for="address2">Address 2 </label>
+                <input type="text" class="form-control" id="" placeholder="Apartment or suite"
+                  [(ngModel)]="address.address_2" name="AddressTwo" />
+                  <p class="text-danger">{{errorMsg.address_2}}</p>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <label for="country">Country</label>
+                  <input type="text" class="form-control" id="" placeholder="Country" [(ngModel)]="address.country"
+                    name="Country" />
+                    <p class="text-danger">{{errorMsg.country}}</p>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <label for="zip">City</label>
+                  <input type="text" class="form-control" id="" placeholder="City" [(ngModel)]="address.city"
+                    name="City" />
+                    <p class="text-danger">{{errorMsg.city}}</p>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <label for="zip">Zip</label>
+                  <input type="text" class="form-control" id="" placeholder="ZipCode" [(ngModel)]="address.postal_code"
+                    name="ZipCode" />
+                    <p class="text-danger">{{errorMsg.postal_code}}</p>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <button type="submit" (click)="onSave()"  class="btn  float-left">
+                    Save
+                  </button>
+                </div>
+
+
+              </div>
+
+              <hr class="mb-4" />
+            </form>
+
+
+          </div>
+         </div>
+
+
+       <!-- Row to show form on button click ends here  -->
+
+      <hr class="mb-4" />
+    </form>
+  </div>
+</div>
